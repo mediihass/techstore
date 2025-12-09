@@ -31,7 +31,7 @@ export default function BlogDetailsPage({ params }) {
     <div className="min-h-screen w-screen bg-gray-50 dark:bg-gray-900 py-8 px-4 md:px-8 flex justify-center">
       <main className="w-full max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
         {/* Image */}
-        <div className="w-full h-64 md:h-72 overflow-hidden rounded-lg mb-4">
+        <div className="w-full h-64 md:h-100 overflow-hidden rounded-lg mb-4">
           <img
             src={post.image}
             alt={post.titre}

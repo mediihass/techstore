@@ -5,7 +5,7 @@ export default function ProduitCard({ produit }) {
   return (
     <div className="card border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
       {/* Image */}
-      <div className="relative h-60 w-full overflow-hidden rounded-t-lg">
+      <div className="relative h-80 w-full overflow-hidden rounded-t-lg">
         <Image
           src={produit.image}
           alt={produit.nom}
@@ -16,7 +16,7 @@ export default function ProduitCard({ produit }) {
 
       {/* Détails */}
       <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2 font-poppins line-clamp-2">
+        <h3 className="text-lg font-bold mb-2 font-poppins line-clamp-2">
           {produit.nom}
         </h3>
 
@@ -24,7 +24,7 @@ export default function ProduitCard({ produit }) {
           <span className="font-bold">Prix :</span> {produit.prix} €
         </p>
 
-        <span className="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium mb-4">
+        <span className="inline-block bg-red-600 text-white text-xs px-3 py-1 rounded-full font-medium mb-4">
           {produit.categorie}
         </span>
 

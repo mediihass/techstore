@@ -9,7 +9,6 @@ export default function ContactPage() {
     <div className="min-h-screen w-screen flex flex-col md:flex-row p-6 gap-8 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       {/* Colonne 1 : Formulaire */}
       <div className="md:w-1/2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Contactez‑nous</h2>
         <ContactForm />
       </div>
 

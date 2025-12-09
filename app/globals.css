@@ -10,3 +10,46 @@
 body {
   font-family: var(--font-poppins);
 }
+
+/* Styles spécifiques pour le dark mode */
+
+  html {
+    @apply transition-colors duration-300;
+  }
+  
+
+  html.dark body {
+    @apply bg-gray-900 text-white;
+  }
+
+.dark .bg-white {
+  @apply bg-gray-800;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-900;
+}
+
+.dark .text-gray-900 {
+  @apply text-white;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .border-gray-200 {
+  @apply border-gray-700;
+}
+
+.dark .border-gray-300 {
+  @apply border-gray-600;
+}
+
+.dark .shadow-md {
+  @apply shadow-gray-900/30;
+}

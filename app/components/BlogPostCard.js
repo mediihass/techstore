@@ -9,7 +9,7 @@ export default function BlogPostCard({ post }) {
       className="block border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 max-w-[600px] mx-auto"
     >
       {/* Image réduite */}
-      <div className="h-32 w-full overflow-hidden">
+      <div className="h-80 w-full overflow-hidden">
         <img
           src={post.image}
           alt={post.titre}

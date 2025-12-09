@@ -58,9 +58,9 @@ export default function Footer() {
           className="hover:opacity-80 transition-opacity duration-200"
         >
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Linked-in-alt.svg/960px-Linked-in-alt.svg.png?20230821072523"
             alt="LinkedIn"
-            width={64} // Adjusted for the original aspect ratio
+            width={24} // Adjusted for the original aspect ratio
             height={24}
           />
         </a>

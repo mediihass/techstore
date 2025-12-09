@@ -8,9 +8,9 @@ export default function DetailsProduitCard({ produit }) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
+    <div className="w-full max-w-xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
       {/* Image */}
-      <div className="h-60 flex items-center justify-center overflow-hidden rounded-tr-lg rounded-bl-lg">
+      <div className="h-80 flex items-center justify-center overflow-hidden rounded-tr-lg rounded-bl-lg">
         <img
           src={produit.image}
           alt={produit.nom}
@@ -38,7 +38,7 @@ export default function DetailsProduitCard({ produit }) {
           onClick={handleCommander}
           className="mt-3 bg-green-600 text-gray py-2 px-4 rounded-full hover:bg-green-700 transition"
         >
-          Commander
+          Acheter
         </button>
       </div>
     </div>

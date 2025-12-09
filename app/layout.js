@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Découvrez les meilleurs produits technologiques au meilleur prix.",
   icons: {
-    icon: "/images/fav.ICO", // <-- chemin vers ton nouveau favicon
+    icon: "/images/logo.svg", // <-- chemin vers ton nouveau favicon
   },
 };
 
