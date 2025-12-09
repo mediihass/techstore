@@ -4,7 +4,7 @@ import { produits } from "../../../data/produits"; // fichier des produits
 
 // SEO dynamique
 export async function generateMetadata({ params }) {
-  const { id } = params;
+  const { id } = await params;
   const produit = produits.find((p) => p.id === Number(id));
 
   if (!produit) {

@@ -19,7 +19,10 @@ const schema = yup
       .string()
       .required("Le CIN est requis")
       .matches(/^\d{8}$/, "Le CIN doit contenir exactement 8 chiffres"),
-    email: yup.string().email("Email invalide").required("L'email est requis"),
+    email: yup
+      .string()
+      .email("Email invalide")
+      .required("L&apos;email est requis"),
     password: yup
       .string()
       .required("Le mot de passe est requis")
@@ -154,7 +157,7 @@ export default function InscriptionForm() {
             htmlFor="conditions"
             className="ml-2 text-sm text-gray-700 dark:text-gray-300"
           >
-            J'accepte les conditions générales
+            J&apos;accepte les conditions générales
           </label>
         </div>
         {errors.conditions && (
@@ -164,9 +167,9 @@ export default function InscriptionForm() {
         {/* Bouton */}
         <button
           type="submit"
-          className="w-full bg-sky-500 hover:bg-sky-600 text-gray-500 font-semibold py-4 text-lg rounded-md shadow-md hover:shadow-lg transition-all duration-300 "
+          className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-4 text-lg rounded-md shadow-md hover:shadow-lg transition-all duration-300 "
         >
-          S'inscrire
+          S&apos;inscrire
         </button>
       </form>
     </div>

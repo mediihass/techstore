@@ -2,6 +2,7 @@
 
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
@@ -15,11 +16,14 @@ export default function ContactPage() {
       {/* Colonne 2 : Infos de contact */}
       <div className="md:w-1/2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center gap-4">
         <h2 className="text-2xl font-bold mb-4">Nos Informations</h2>
-        <img
-          src="/images/localisation.png"
-          alt="Bureau"
-          className="rounded-lg mb-4"
-        />
+        <div className="relative w-full h-64 mb-4 rounded-lg overflow-hidden">
+          <Image
+            src="/images/localisation.png"
+            alt="Bureau"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
         <p>
           <strong>Adresse :</strong> 123 Rue Exemple, 1000 Tunis
         </p>

@@ -1,14 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProduitCard({ produit }) {
   return (
     <div className="card border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
       {/* Image */}
-      <div className="h-60 flex items-center justify-center overflow-hidden rounded-t-lg">
-        <img
+      <div className="relative h-60 w-full overflow-hidden rounded-t-lg">
+        <Image
           src={produit.image}
           alt={produit.nom}
-          className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+          fill
+          className="object-contain transition-transform duration-300 hover:scale-105"
         />
       </div>
 
