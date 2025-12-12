@@ -61,9 +61,9 @@ export default function NavBar() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-12 w-auto">
           {/* Logo */}
-          <a href="/" className="shrink-0 flex items-center ">
+          <Link href="/" className="shrink-0 flex items-center">
             <Image src="/images/logo.svg" alt="Logo" width={140} height={120} />
-          </a>
+          </Link>
 
           {/* Desktop menu */}
           <div className="grow hidden md:flex justify-center space-x-8">

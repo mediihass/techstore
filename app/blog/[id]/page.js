@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "../../../data/blogPosts"; // chemin vers vos données
+import Image from "next/image";
 
 // ✅ SEO dynamique
 export async function generateMetadata({ params }) {
@@ -31,11 +32,13 @@ export default async function BlogDetailsPage({ params }) {
     <div className="min-h-screen w-screen bg-gray-50 dark:bg-gray-900 py-8 px-4 md:px-8 flex justify-center">
       <main className="w-full max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
         {/* Image */}
-        <div className="w-full h-64 md:h-100  overflow-hidden mb-4">
-          <img
+        <div className="relative w-full h-64 md:h-100 overflow-hidden mb-4">
+          <Image
             src={post.image}
             alt={post.titre}
-            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain transition-transform duration-300 hover:scale-105"
           />
         </div>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 export default function DetailsProduitCard({ produit }) {
@@ -10,11 +11,13 @@ export default function DetailsProduitCard({ produit }) {
   return (
     <div className="w-full max-w-xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
       {/* Image */}
-      <div className="h-80 flex items-center justify-center overflow-hidden rounded-tr-lg rounded-bl-lg">
-        <img
+      <div className="relative h-80 flex items-center justify-center overflow-hidden rounded-tr-lg rounded-bl-lg bg-gray-50 dark:bg-gray-900">
+        <Image
           src={produit.image}
           alt={produit.nom}
-          className="w-full h-full object-contain"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover  p-4"
         />
       </div>
 

@@ -11,7 +11,7 @@ export default function ProduitCard({ produit }) {
           alt={produit.nom}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain transition-transform duration-300 hover:scale-105"
+          className="object-cover transition-transform duration-300 hover:scale-105"
           priority={produit.id <= 3} // Optionnel: prioriser les premières images
         />
       </div>
