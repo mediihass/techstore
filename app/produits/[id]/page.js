@@ -21,8 +21,8 @@ export async function generateMetadata({ params }) {
 }
 
 // Page dynamique
-export default function ProduitDetailsPage({ params }) {
-  const { id } = params;
+export default async function ProduitDetailsPage({ params }) {
+  const { id } = await params;
   const produit = produits.find((p) => p.id === Number(id));
 
   if (!produit) {

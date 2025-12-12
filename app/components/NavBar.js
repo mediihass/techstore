@@ -59,9 +59,9 @@ export default function NavBar() {
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-12 w-auto">
           {/* Logo */}
-          <a href="#" className="shrink-0 flex items-center">
+          <a href="/" className="shrink-0 flex items-center ">
             <Image src="/images/logo.svg" alt="Logo" width={140} height={120} />
           </a>
 
@@ -83,7 +83,7 @@ export default function NavBar() {
             {/* Bouton Inscription */}
             <Link
               href="/inscription"
-              className="bg-purple-600 text-white px-4 py-2 rounded-lg font-poppins font-semibold hover:bg-purple-700 transition-colors duration-300"
+              className="bg-purple-600 text-white px-2 py-2 rounded-lg font-poppins font-semibold hover:bg-purple-700 transition-colors duration-300"
             >
               Inscription
             </Link>
@@ -103,7 +103,7 @@ export default function NavBar() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
+              className="p-1 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-yellow-500" />

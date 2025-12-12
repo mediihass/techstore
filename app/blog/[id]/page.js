@@ -4,7 +4,7 @@ import { blogPosts } from "../../../data/blogPosts"; // chemin vers vos données
 
 // ✅ SEO dynamique
 export async function generateMetadata({ params }) {
-  const { id } = params; // pas d'await ici
+  const { id } = await params; // pas d'await ici
   const post = blogPosts.find((p) => p.id === Number(id));
 
   if (!post) {
@@ -21,8 +21,8 @@ export async function generateMetadata({ params }) {
 }
 
 // ✅ Page dynamique pour afficher le contenu complet
-export default function BlogDetailsPage({ params }) {
-  const { id } = params;
+export default async function BlogDetailsPage({ params }) {
+  const { id } = await params;
   const post = blogPosts.find((p) => p.id === Number(id));
 
   if (!post) notFound();
@@ -31,11 +31,11 @@ export default function BlogDetailsPage({ params }) {
     <div className="min-h-screen w-screen bg-gray-50 dark:bg-gray-900 py-8 px-4 md:px-8 flex justify-center">
       <main className="w-full max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
         {/* Image */}
-        <div className="w-full h-64 md:h-100 overflow-hidden rounded-lg mb-4">
+        <div className="w-full h-64 md:h-100  overflow-hidden mb-4">
           <img
             src={post.image}
             alt={post.titre}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
           />
         </div>
 

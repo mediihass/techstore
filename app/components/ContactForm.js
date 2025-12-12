@@ -36,7 +36,7 @@ export default function ContactPage() {
 
   const onSubmit = (data) => {
     console.log("Form Data:", data);
-    alert("Message envoyé !");
+    alert("Message envoyé!");
     reset();
   };
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex justify-center items-start p-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       {/* Form column */}
       <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Contactez‑nous</h2>
+        <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           {/* Nom */}

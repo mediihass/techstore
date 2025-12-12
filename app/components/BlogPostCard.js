@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogPostCard({ post }) {
   return (
@@ -9,11 +10,14 @@ export default function BlogPostCard({ post }) {
       className="block border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 max-w-[600px] mx-auto"
     >
       {/* Image réduite */}
-      <div className="h-80 w-full overflow-hidden">
-        <img
+      <div className="relative h-80 w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-900">
+        <Image
           src={post.image}
           alt={post.titre}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="object-cover transition-transform duration-300 hover:scale-105"
+          priority={post.id <= 3}
         />
       </div>
 

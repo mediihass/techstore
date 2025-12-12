@@ -5,12 +5,14 @@ export default function ProduitCard({ produit }) {
   return (
     <div className="card border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg">
       {/* Image */}
-      <div className="relative h-80 w-full overflow-hidden rounded-t-lg">
+      <div className="relative h-64 w-full overflow-hidden rounded-t-lg">
         <Image
           src={produit.image}
           alt={produit.nom}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-contain transition-transform duration-300 hover:scale-105"
+          priority={produit.id <= 3} // Optionnel: prioriser les premières images
         />
       </div>
 
