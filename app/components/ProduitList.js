@@ -5,7 +5,7 @@ import ProduitCard from "../components/ProduitCard";
 import { produits } from "../../data/produits";
 
 export default function ProduitList() {
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("relevance");
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Prix");
   const [selectedPrice, setSelectedPrice] = useState("Prix");
@@ -21,7 +21,7 @@ export default function ProduitList() {
 
   // Options de prix en euros
   const priceOptions = [
-    { label: "Touts Prix", value: "Prix" },
+    { label: "Tous Prix", value: "Prix" },
     { label: "moins de 300€", value: "moins de 300€" },
     { label: "300€ - 1000€", value: "300€ - 1000€" },
     { label: "1000€ - 2000€", value: "1000€ - 2000€" },
@@ -30,7 +30,7 @@ export default function ProduitList() {
 
   // Ranges de prix pour le filtrage en euros
   const priceRanges = [
-    { label: "Touts Prix", min: 0, max: Infinity },
+    { label: "Tous Prix", min: 0, max: Infinity },
     { label: "moins de 300€", min: 0, max: 300 },
     { label: "300€ - 1000€", min: 300, max: 1000 },
     { label: "1000€ - 2000€", min: 1000, max: 2000 },
@@ -51,9 +51,15 @@ export default function ProduitList() {
     });
 
   // Trier les produits filtrés
-  const sortedProducts = [...filteredProducts].sort((a, b) =>
-    sortOrder === "asc" ? a.prix - b.prix : b.prix - a.prix
-  );
+  const sortedProducts = (() => {
+    if (sortOrder === "relevance") {
+      return filteredProducts;
+    }
+
+    return [...filteredProducts].sort((a, b) =>
+      sortOrder === "asc" ? a.prix - b.prix : b.prix - a.prix
+    );
+  })();
 
   // Calcul de la pagination
   const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
@@ -74,7 +80,8 @@ export default function ProduitList() {
   return (
     <div className="w-full max-w-full px-4 md:px-6 py-8 min-h-[70vh]">
       {/* Barre de recherche et tri */}
-      <div className="mb-6 flex flex-col md:flex-row items-end justify-between gap-4">
+      <div className="mb-6 flex flex-col gap-4 w-full">
+        {/* Search input */}
         <input
           type="text"
           placeholder="Rechercher un produit..."
@@ -83,19 +90,36 @@ export default function ProduitList() {
             setSearch(e.target.value);
             handleFilterChange();
           }}
-          className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+          className="
+      w-full
+      px-4 py-2
+      border border-gray-300 dark:border-gray-600
+      rounded-lg
+      bg-white dark:bg-gray-800
+      text-gray-900 dark:text-white
+      focus:outline-none focus:ring-2 focus:ring-primary
+    "
         />
 
-        <div className="flex flex-col md:flex-row gap-4">
-          {/* Menu déroulant pour les catégories */}
-          <div className="relative">
+        {/* Filters */}
+        <div
+          className="
+      grid grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-3
+      gap-4
+      w-full
+    "
+        >
+          {/* Category */}
+          <div className="relative w-full">
             <select
               value={selectedCategory}
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
                 handleFilterChange();
               }}
-              className="w-full md:w-48 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none"
+              className="w-full px-4 py-2 border rounded-lg appearance-none"
             >
               <option value="Prix">Toutes catégories</option>
               {allCategories.map((category) => (
@@ -115,15 +139,15 @@ export default function ProduitList() {
             </div>
           </div>
 
-          {/* Menu déroulant pour les prix */}
-          <div className="relative">
+          {/* Price */}
+          <div className="relative w-full">
             <select
               value={selectedPrice}
               onChange={(e) => {
                 setSelectedPrice(e.target.value);
                 handleFilterChange();
               }}
-              className="w-full md:w-48 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none"
+              className="w-full px-4 py-2 border rounded-lg appearance-none"
             >
               {priceOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -142,13 +166,14 @@ export default function ProduitList() {
             </div>
           </div>
 
-          {/* Contrôle de tri */}
-          <div className="relative">
+          {/* Sort */}
+          <div className="relative w-full">
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="w-full md:w-48 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none"
+              className="w-full px-4 py-2 border rounded-lg appearance-none"
             >
+              <option value="relevance">Pertinence</option>
               <option value="asc">croissant</option>
               <option value="desc">décroissant</option>
             </select>

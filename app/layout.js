@@ -1,7 +1,9 @@
 import "./globals.css";
+import { CartProvider } from "../app/context/CartContext";
 import Header from "../app/components/Header";
 import NavBar from "../app/components/NavBar";
 import Footer from "../app/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "TechStore – High-Tech & Innovation",
@@ -16,11 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body>
-        <Header />
-        <NavBar />
+        <CartProvider>
+          <Header />
+          <NavBar />
 
-        <main className="container">{children}</main>
-
+          <main className="container">{children}</main>
+          <Toaster position="top-right" />
+        </CartProvider>
         <Footer />
       </body>
     </html>

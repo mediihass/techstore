@@ -1,13 +1,16 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Sun, Moon, User, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 
 export default function NavBar() {
   const [mounted, setMounted] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   useEffect(() => {
     setMounted(true);
@@ -29,7 +32,6 @@ export default function NavBar() {
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-
     if (newDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("darkMode", "true");
@@ -39,6 +41,7 @@ export default function NavBar() {
     }
   };
 
+  // Menu items (Inscription handled separately for styling on desktop)
   const menuItems = [
     { name: "Accueil", href: "/" },
     { name: "Produits", href: "/produits" },
@@ -46,15 +49,7 @@ export default function NavBar() {
     { name: "Contact", href: "/contact" },
   ];
 
-  if (!mounted) {
-    return (
-      <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center h-16">
-          <span className="text-xl font-bold">Logo</span>
-        </div>
-      </nav>
-    );
-  }
+  if (!mounted) return <div />;
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
@@ -66,7 +61,7 @@ export default function NavBar() {
           </Link>
 
           {/* Desktop menu */}
-          <div className="grow hidden md:flex justify-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
@@ -76,18 +71,18 @@ export default function NavBar() {
                 {item.name}
               </Link>
             ))}
+
+            {/* Inscription button on desktop */}
+            <Link
+              href="/inscription"
+              className="bg-purple-600 text-white px-3 py-1 rounded-lg font-poppins font-semibold hover:bg-purple-700 transition-colors duration-300"
+            >
+              Inscription
+            </Link>
           </div>
 
           {/* Action buttons */}
           <div className="flex items-center gap-3">
-            {/* Bouton Inscription */}
-            <Link
-              href="/inscription"
-              className="bg-purple-600 text-white px-2 py-2 rounded-lg font-poppins font-semibold hover:bg-purple-700 transition-colors duration-300"
-            >
-              Inscription
-            </Link>
-
             {/* Mobile menu toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -100,6 +95,19 @@ export default function NavBar() {
               )}
             </button>
 
+            {/* Cart icon */}
+            <Link
+              href="/cart"
+              className="relative p-1 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
+            >
+              <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-gray-200" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-purple-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+
             {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}
@@ -108,7 +116,7 @@ export default function NavBar() {
               {darkMode ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
+                <Moon className="w-5 h-5 text-gray-700 dark:text-gray-200" />
               )}
             </button>
           </div>
@@ -127,6 +135,14 @@ export default function NavBar() {
                 {item.name}
               </Link>
             ))}
+
+            <Link
+              href="/inscription"
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-gray-700 dark:text-gray-300 font-medium p-2 transition duration-300 hover:text-purple-600 dark:hover:text-purple-400"
+            >
+              Inscription
+            </Link>
           </div>
         )}
       </div>
