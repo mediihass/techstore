@@ -1,20 +1,32 @@
 "use client";
 import Link from "next/link";
+import BlurText from "../app/components/BlurText";
+
+const handleAnimationComplete = () => {
+  console.log("Animation completed!");
+};
 
 export default function HomePage() {
   return (
     <main className="w-screen min-h-screen flex flex-col items-center justify-center">
       <section className="w-screen relative">
-        <div className="h-[80vh] ">
+        <div className="h-[80vh]">
           {/* Overlay */}
           <div
             className="absolute w-full bg-cover bg-center inset-0 bg-black bg-opacity-80 flex flex-col items-center  px-4"
             style={{ backgroundImage: "url('/images/background.jpg')" }}
           >
-            <h1 className="text-white text-4xl text-center md:text-6xl font-bold bg-red-900 mb-6 mt-16">
-              Bienvenue sur TechStore
-            </h1>
+            {/* Animated Heading */}
+            <BlurText
+              text="Bienvenue sur TechStore"
+              delay={200}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-white text-4xl text-center md:text-6xl font-bold bg-red-900 rounded mb-6 mt-16"
+            />
 
+            {/* Links */}
             <div className="flex flex-col md:flex-row gap-4">
               <Link
                 href="/produits"
