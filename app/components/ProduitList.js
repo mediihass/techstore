@@ -97,7 +97,7 @@ export default function ProduitList() {
       rounded-lg
       bg-white dark:bg-gray-800
       text-gray-900 dark:text-white
-      focus:outline-none focus:ring-2 focus:ring-primary
+      focus:outline-none focus:ring-1 focus:ring-primary
     "
         />
 

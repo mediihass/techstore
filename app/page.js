@@ -23,7 +23,7 @@ export default function HomePage() {
               animateBy="words"
               direction="top"
               onAnimationComplete={handleAnimationComplete}
-              className="text-white text-4xl text-center md:text-6xl font-bold bg-red-900 rounded mb-6 mt-16"
+              className="text-white text-4xl text-center flex justify-center md:text-6xl font-bold bg-red-900 rounded-xl mb-6 mt-16 p-2"
             />
 
             {/* Links */}
