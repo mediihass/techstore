@@ -1,13 +1,18 @@
 "use client";
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 export default function Header() {
   return (
     <header className="w-full  bg-gray-100 text-center flex flex-col items-center gap-2">
       {/* Nom du site */}
-      <h1 className="text-3xl font-bold text-[#3653f9] font-poppins">
-        TechStore
-      </h1>
+      <Image
+        src="/images/logo.svg"
+        alt="Logo"
+        width={200}
+        height={150}
+        className="object-contain"
+      />
 
       {/* Mini-slogan */}
       <p className="text-sm text-gray-600 font-poppins">

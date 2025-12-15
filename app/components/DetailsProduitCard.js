@@ -40,7 +40,7 @@ export default function DetailsProduitCard({ produit }) {
         {/* Add to cart button */}
         <button
           onClick={handleAddToCart}
-          className="mt-4 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
+          className="mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
         >
           Ajouter au panier
         </button>
