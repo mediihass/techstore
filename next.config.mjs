@@ -19,6 +19,7 @@ const nextConfig = {
   experimental: {
     // Augmenter la limite de données pour les pages
     largePageDataBytes: 128 * 1000 * 1000, // 128MB (corrigé)
+    turbopack: true,
 
     // Autres optimisations pour Next.js 15
     optimizeCss: true,

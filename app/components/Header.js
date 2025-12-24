@@ -17,9 +17,9 @@ export default function Header() {
         <Image
           src="/images/bonnet-noel.png"
           alt="Bonnet de Noël"
-          width={50}
-          height={50}
-          className="absolute top-0 left-0  transform -translate-x-5 scale-x-[-1]"
+          width={45}
+          height={45}
+          className="absolute top-0 left-0  transform -translate-x-3 scale-x-[-1]"
         />
       </div>
 

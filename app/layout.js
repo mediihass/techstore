@@ -4,6 +4,7 @@ import Header from "../app/components/Header";
 import NavBar from "../app/components/NavBar";
 import Footer from "../app/components/Footer";
 import { Toaster } from "react-hot-toast";
+import BackToTopWrapper from "../app/components/BackToTopWrapper";
 
 export const metadata = {
   title: "TechStore – High-Tech & Innovation",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
 
           <main className="container">{children}</main>
           <Toaster position="top-right" />
+          <BackToTopWrapper />
         </CartProvider>
         <Footer />
       </body>

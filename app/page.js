@@ -10,7 +10,7 @@ const handleAnimationComplete = () => {
 export default function HomePage() {
   return (
     <>
-      <Snowfall color="#82c3d9" snowflakeCount={150} />
+      <Snowfall color="#82c3d9" snowflakeCount={60} />
       <main className="w-screen min-h-screen flex flex-col items-center justify-center">
         <section className="w-screen relative">
           <div className="h-[80vh]">

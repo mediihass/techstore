@@ -7,7 +7,7 @@ export default function BlogPostCard({ post }) {
   return (
     <Link
       href={`/blog/${post.id}`}
-      className="block border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 max-w-[600px] mx-auto"
+      className="block border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 max-w-150 mx-auto"
     >
       {/* Image réduite */}
       <div className="relative h-90 w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-900">

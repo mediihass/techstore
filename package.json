@@ -21,6 +21,7 @@
     "react-fast-marquee": "^1.6.5",
     "react-hot-toast": "^2.6.0",
     "react-snowfall": "^2.4.0",
+    "tw-elements": "^2.0.0",
     "yup": "^1.7.1"
   },
   "devDependencies": {
