@@ -1,15 +1,24 @@
 "use client";
 import Image from "next/image";
-import toast from "react-hot-toast";
 import { useCart } from "../context/CartContext";
+import Link from "next/link";
 
 export default function DetailsProduitCard({ produit }) {
-  const { addToCart } = useCart();
+  const { addToCart, addToCompare, compare } = useCart();
 
   const handleAddToCart = () => {
     addToCart(produit);
-    toast.success(`Produit "${produit.nom}" ajouté au panier 🛒`);
+    // toast removed – you can replace with a simple alert if you still want feedback
+    // alert(`Produit "${produit.nom}" ajouté au panier 🛒`);
   };
+
+  const handleAddToCompare = () => {
+    addToCompare(produit);
+    // toast removed – optional alert
+    // alert(`Produit "${produit.nom}" ajouté à la comparaison`);
+  };
+
+  const alreadyCompared = compare.some((p) => p.id === produit.id);
 
   return (
     <div className="w-full max-w-xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg overflow-hidden">
@@ -37,13 +46,34 @@ export default function DetailsProduitCard({ produit }) {
           {produit.description}
         </p>
 
-        {/* Add to cart button */}
-        <button
-          onClick={handleAddToCart}
-          className="mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
-        >
-          Ajouter au panier
-        </button>
+        {/* Buttons */}
+        <div className="flex gap-2 mt-4">
+          <button
+            onClick={handleAddToCart}
+            className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
+          >
+            Ajouter au panier
+          </button>
+
+          <button
+            onClick={handleAddToCompare}
+            disabled={alreadyCompared}
+            className={`py-2 px-4 rounded-lg transition ${
+              alreadyCompared
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-600 text-white hover:bg-blue-700"
+            }`}
+          >
+            {alreadyCompared ? "Déjà comparé" : "Comparer"}
+          </button>
+
+          <Link
+            href="/produits"
+            className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+          >
+            Retour à la boutique
+          </Link>
+        </div>
       </div>
     </div>
   );

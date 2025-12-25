@@ -14,13 +14,6 @@ export default function Header() {
           height={160}
           className="object-contain"
         />
-        <Image
-          src="/images/bonnet-noel.png"
-          alt="Bonnet de Noël"
-          width={45}
-          height={45}
-          className="absolute top-0 left-0  transform -translate-x-3 scale-x-[-1]"
-        />
       </div>
 
       {/* Mini-slogan */}
