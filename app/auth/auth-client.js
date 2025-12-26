@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 function LoadingSpinner({ text }) {
   return (
@@ -40,8 +40,6 @@ export default function AuthClientPage() {
   const [error, setError] = useState("");
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams?.get("callbackUrl") ?? "/";
 
   // -----------------------------------------------------------------
   // Modified auth functions – always succeed
