@@ -1,9 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Sun, Moon, Menu, X, ShoppingCart } from "lucide-react";
+import { Sun, Moon, Menu, X, ShoppingCart, User } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 export default function NavBar() {
@@ -14,7 +13,6 @@ export default function NavBar() {
 
   useEffect(() => {
     setMounted(true);
-
     const saved = localStorage.getItem("darkMode");
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -41,7 +39,6 @@ export default function NavBar() {
     }
   };
 
-  // Menu items (Inscription handled separately for styling on desktop)
   const menuItems = [
     { name: "Accueil", href: "/" },
     { name: "Produits", href: "/produits" },
@@ -55,9 +52,16 @@ export default function NavBar() {
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-12 w-auto">
-          {/* Logo */}
+          {/* Logo – smaller on mobile */}
           <Link href="/" className="shrink-0 flex items-center">
-            <Image src="/images/logo.svg" alt="Logo" width={140} height={120} />
+            <Image
+              src="/images/logo.svg"
+              alt="Logo"
+              // mobile: 80 px, tablet: 120 px, desktop: 140 px
+              width={140}
+              height={120}
+              className="w-20 h-auto sm:w-28 md:w-36"
+            />
           </Link>
 
           {/* Desktop menu */}
@@ -72,13 +76,12 @@ export default function NavBar() {
               </Link>
             ))}
 
-            {/* Inscription button on desktop */}
-            <Link
+            {/*<Link
               href="/inscription"
               className="bg-purple-600 text-white px-3 py-1 rounded-lg font-poppins font-semibold hover:bg-purple-700 transition-colors duration-300"
             >
               Inscription
-            </Link>
+            </Link>*/}
           </div>
 
           {/* Action buttons */}
@@ -95,13 +98,20 @@ export default function NavBar() {
               )}
             </button>
 
+            {/* Login icon */}
+            <Link
+              href="/auth"
+              className="p-1 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
+            >
+              <User className="w-5 h-5 text-gray-700" />
+            </Link>
+
             {/* Cart icon */}
             <Link
               href="/cart"
               className="relative p-1 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300"
             >
               <ShoppingCart className="w-5 h-5 text-gray-700" />
-
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-purple-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
                   {cartCount}
@@ -137,13 +147,13 @@ export default function NavBar() {
               </Link>
             ))}
 
-            <Link
+            {/*<Link
               href="/inscription"
               onClick={() => setIsMenuOpen(false)}
               className="block text-gray-700 dark:text-gray-300 font-medium p-2 transition duration-300 hover:text-purple-600 dark:hover:text-purple-400"
             >
               Inscription
-            </Link>
+            </Link>*/}
           </div>
         )}
       </div>

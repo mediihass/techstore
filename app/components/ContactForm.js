@@ -44,12 +44,14 @@ export default function ContactPage() {
     <div className="min-h-screen flex justify-center items-start p-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       {/* Form column */}
       <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
+        <h2 className="text-base md:text-2xl text-center font-bold mb-4">
+          Contactez-nous
+        </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           {/* Nom */}
           <div>
-            <label className="block mb-1 font-medium">Nom</label>
+            <label className="text-base block mb-1 font-medium">Nom</label>
             <input
               type="text"
               {...register("name")}
@@ -62,7 +64,7 @@ export default function ContactPage() {
 
           {/* Email */}
           <div>
-            <label className="block mb-1 font-medium">Email</label>
+            <label className="text-base block mb-1 font-medium">Email</label>
             <input
               type="email"
               {...register("email")}
@@ -77,7 +79,9 @@ export default function ContactPage() {
 
           {/* Téléphone */}
           <div>
-            <label className="block mb-1 font-medium">Téléphone</label>
+            <label className="text-base block mb-1 font-medium">
+              Téléphone
+            </label>
             <input
               type="text"
               {...register("telephone")}
@@ -92,7 +96,7 @@ export default function ContactPage() {
 
           {/* Message */}
           <div>
-            <label className="block mb-1 font-medium">Message</label>
+            <label className="text-base block mb-1 font-medium">Message</label>
             <textarea
               {...register("message")}
               rows={4}
@@ -108,7 +112,7 @@ export default function ContactPage() {
           {/* Submit button */}
           <button
             type="submit"
-            className="mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+            className="text-base mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
           >
             Envoyer
           </button>

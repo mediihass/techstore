@@ -8,28 +8,24 @@ export default function DetailsProduitCard({ produit }) {
 
   const handleAddToCart = () => {
     addToCart(produit);
-    // toast removed – you can replace with a simple alert if you still want feedback
-    // alert(`Produit "${produit.nom}" ajouté au panier 🛒`);
   };
 
   const handleAddToCompare = () => {
     addToCompare(produit);
-    // toast removed – optional alert
-    // alert(`Produit "${produit.nom}" ajouté à la comparaison`);
   };
 
   const alreadyCompared = compare.some((p) => p.id === produit.id);
 
   return (
-    <div className="w-full max-w-xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg overflow-hidden">
+    <div className="w-full max-w-2xl mx-auto border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg overflow-hidden">
       {/* Image */}
-      <div className="relative h-80 flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <div className="relative h-80  flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <Image
           src={produit.image}
           alt={produit.nom}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-contain p-4"
+          className="object-contain p-2"
         />
       </div>
 
@@ -46,11 +42,11 @@ export default function DetailsProduitCard({ produit }) {
           {produit.description}
         </p>
 
-        {/* Buttons */}
-        <div className="flex gap-2 mt-4">
+        {/* Buttons – wrap on mobile */}
+        <div className="flex justify-center flex-wrap gap-2 mt-3">
           <button
             onClick={handleAddToCart}
-            className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
+            className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition flex-1 min-w-30"
           >
             Ajouter au panier
           </button>
@@ -58,7 +54,7 @@ export default function DetailsProduitCard({ produit }) {
           <button
             onClick={handleAddToCompare}
             disabled={alreadyCompared}
-            className={`py-2 px-4 rounded-lg transition ${
+            className={`flex-1 min-w-30 py-2 px-4 rounded-lg transition ${
               alreadyCompared
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-blue-600 text-white hover:bg-blue-700"
@@ -69,9 +65,9 @@ export default function DetailsProduitCard({ produit }) {
 
           <Link
             href="/produits"
-            className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+            className="flex-1 min-w-30 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition text-center"
           >
-            Retour à la boutique
+            Liste Produits
           </Link>
         </div>
       </div>
